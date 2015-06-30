@@ -1,14 +1,14 @@
-# grunt-sass-themes
+# grunt-sass-themer
 =======================
 
 > Compile theme-able SASS files to CSS. Use the same SASS files and only override variables for different themes.
 
-[![Build Status](https://travis-ci.org/opentable/grunt-sass-themes.svg?branch=master)](https://travis-ci.org/opentable/grunt-sass-themes)
-[![NPM version](https://badge.fury.io/js/grunt-sass-themes.svg)](http://badge.fury.io/js/grunt-sass-themes)
-[![Dependency Status](https://david-dm.org/opentable/grunt-sass-themes.png?theme=shields.io)](https://david-dm.org/opentable/grunt-sass-themes)
-[![devDependency Status](https://david-dm.org/opentable/grunt-sass-themes.png?theme=shields.io)](https://david-dm.org/opentable/grunt-sass-themes#info=devDependencies)
+[![Build Status](https://travis-ci.org/lodalo/grunt-sass-themer.svg?branch=master)](https://travis-ci.org/lodalo/grunt-sass-themer)
+[![NPM version](https://badge.fury.io/js/grunt-sass-themer.svg)](http://badge.fury.io/js/grunt-sass-themer)
+[![Dependency Status](https://david-dm.org/lodalo/grunt-sass-themer.png?theme=shields.io)](https://david-dm.org/lodalo/grunt-sass-themer)
+[![devDependency Status](https://david-dm.org/lodalo/grunt-sass-themer.png?theme=shields.io)](https://david-dm.org/lodalo/grunt-sass-themer#info=devDependencies)
 
-[![NPM](https://nodei.co/npm/grunt-sass-themes.png)](https://nodei.co/npm/grunt-sass-themes)
+[![NPM](https://nodei.co/npm/grunt-sass-themer.png)](https://nodei.co/npm/grunt-sass-themer)
 
 **Based on the brilliance of [grunt-less-themes](https://github.com/hollandben/grunt-less-themes)**
 
@@ -18,13 +18,13 @@ This plugin requires Grunt `~0.4.0`
 If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](http://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins. Once you're familiar with that process, you may install this plugin with this command:
 
 ```shell
-npm install grunt-sass-themes --save-dev
+npm install grunt-sass-themer --save-dev
 ```
 
 Once the plugin has been installed, it may be enabled inside your Gruntfile with this line of JavaScript:
 
 ```js
-grunt.loadNpmTasks('grunt-sass-themes');
+grunt.loadNpmTasks('grunt-sass-themer');
 ```
 
 *This plugin was designed to work with Grunt 0.4.x. If you're still using grunt v0.3.x it's strongly recommended that [you upgrade](http://gruntjs.com/upgrading-from-0.3-to-0.4).
@@ -53,7 +53,7 @@ This option defines the directory where all the themes are hosted
 #### themes
 Type: `Array`
 
-This option provides the `grunt-sass-themes` task with the names of each theme. This name is used to in finding the theme and in the generated file.
+This option provides the `grunt-sass-themer` task with the names of each theme. This name is used to in finding the theme and in the generated file.
 
 #### placeholder
 Type: `String`

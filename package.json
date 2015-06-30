@@ -1,17 +1,21 @@
 {
-  "name": "grunt-sass-themes",
-  "author": "OpenTable Inc.",
+  "name": "grunt-sass-themer",
+  "author": "OpenTable Inc. and Daniel Mendez",
   "description": "Compile multiple themed SASS files to CSS.",
   "version": "0.0.8",
-  "homepage": "https://github.com/opentable/grunt-sass-themes",
+  "homepage": "https://github.com/lodalo/grunt-sass-themer",
   "repository": {
     "type": "git",
-    "url": "git://github.com/opentable/grunt-sass-themes.git"
+    "url": "git://github.com/lodalo/grunt-sass-themer.git"
   },
   "bugs": {
-    "url": "https://github.com/opentable/grunt-sass-themes/issues"
+    "url": "https://github.com/lodalo/grunt-sass-themer/issues"
   },
   "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/lodalo/grunt-sass-themer/blob/master/LICENSE-MIT"
+    },
     {
       "type": "MIT",
       "url": "https://github.com/opentable/grunt-sass-themes/blob/master/LICENSE-MIT"
