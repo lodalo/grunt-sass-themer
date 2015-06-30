@@ -1,5 +1,5 @@
 /*
- * grunt-sass-themes
+ * grunt-sass-themer
  *
  *
  * Adapted from the grunt-contrib-sass module.
@@ -24,7 +24,7 @@ module.exports = function(grunt) {
     render: ['file', 'success', 'error', 'includePaths', 'imagePath', 'outputStyle', 'sourceComments']
   };
 
-  grunt.registerMultiTask('sassThemes', 'Compile multiple themed SASS files to CSS', function() {
+  grunt.registerMultiTask('sassThemer', 'Compile multiple themed SASS files to CSS', function() {
     var options = {
       root: './',
       output: 'generated',

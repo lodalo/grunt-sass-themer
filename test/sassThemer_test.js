@@ -4,7 +4,7 @@ String.prototype.removeWhitespace = function() {
   return this.replace(/(\s)/gm, '');
 };
 
-exports.sassThemes = {
+exports.sassThemer = {
   with_underscores: function(test) {
     test.expect(8);
 

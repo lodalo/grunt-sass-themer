@@ -19,7 +19,7 @@ module.exports = function (grunt) {
       }
     },
 
-    "sassThemes": {
+    "sassThemer": {
       "with_underscores": {
         "options": {
           "output": 'tmp',
@@ -60,5 +60,5 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-nodeunit');
 
-  grunt.registerTask('test', ['clean', 'jshint', 'sassThemes', 'nodeunit']);
+  grunt.registerTask('test', ['clean', 'jshint', 'sassThemer', 'nodeunit']);
 };

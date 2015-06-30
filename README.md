@@ -29,8 +29,8 @@ grunt.loadNpmTasks('grunt-sass-themer');
 
 *This plugin was designed to work with Grunt 0.4.x. If you're still using grunt v0.3.x it's strongly recommended that [you upgrade](http://gruntjs.com/upgrading-from-0.3-to-0.4).
 
-## sass-themes task
-_Run this task with the `grunt sassThemes` command._
+## sass-themer task
+_Run this task with the `grunt sassThemer` command._
 
 Task targets, files and options may be specified according to the grunt [Configuring tasks](http://gruntjs.com/configuring-tasks) guide.
 
@@ -73,7 +73,7 @@ This option is the name of the theme file that is imported into each SASS file f
 #### Simple
 
 ```js
-sassThemes: {
+sassThemer: {
     dev: {
         options: {
             output: 'path/to/output'
@@ -88,7 +88,7 @@ sassThemes: {
 #### Complex
 
 ```js
-sassThemes: {
+sassThemer: {
     dev: {
         options: {
             output: 'path/to/output',
