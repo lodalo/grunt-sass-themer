@@ -11,36 +11,33 @@
 
 'use strict';
 
-module.exports = function(grunt) {
+module.exports = function (grunt) {
 
   var path = require('path'),
     sass = require('node-sass'),
-    fs = require('fs');
-
-  var _ = grunt.util._,
-    async = grunt.util.async;
-
-  var sassOptions = {
-    render: ['file', 'success', 'error', 'includePaths', 'imagePath', 'outputStyle', 'sourceComments']
-  };
-
-  grunt.registerMultiTask('sassThemer', 'Compile multiple themed SASS files to CSS', function() {
-    var options = {
-      root: './',
-      output: 'generated',
-      themeDir: 'themes',
-      themeFilesStartWithUnderscore: true,
-      sassExtension: 'scss',
-      placeholder: '{{themeName}}',
-      themeImport: 'theme'
+    fs = require('fs'),
+    _ = grunt.util._,
+    async = grunt.util.async,
+    sassOptions = {
+      render: ['file', 'includePaths', 'outputStyle', 'sourceComments']
     };
 
-    var done = this.async();
+  grunt.registerMultiTask('sassThemer', 'Compile multiple themed SASS files to CSS', function () {
+    var options = {
+        root: './',
+        output: 'generated',
+        themeDir: 'themes',
+        themeFilesStartWithUnderscore: true,
+        sassExtension: 'scss',
+        placeholder: '{{themeName}}',
+        themeImport: 'theme'
+      },
+      done = this.async(),
+      srcFiles = this.files;
 
     options = _.extend(options, this.options());
-    var srcFiles = this.files;
 
-    async.forEachSeries(options.themes, function(theme, nextTheme) {
+    async.forEachSeries(options.themes, function (theme, nextTheme) {
 
       console.log('Processing theme: ' + theme);
 
@@ -119,21 +116,21 @@ module.exports = function(grunt) {
 
     var renderOpts = {
       file: options.file,
-      success: function(css) {
-        callback(null, css);
-      },
-      error: function(err) {
-        sassError(err);
-        callback(true, css);
-      },
       includePaths: options.includePaths,
-      imagePath: options.imagePath,
       outputStyle: options.outputStyle,
       sourceComments: options.sourceComments
     };
 
-    sass.render(_.pick(renderOpts, sassOptions.render));
-
+    sass.render(_.pick(renderOpts, sassOptions.render),
+      function themerRenderCallback(error, result){
+        if(error){
+          sassError(error);
+          callback(true, result.css.toString('utf-8'));
+        }
+        else {
+          callback(null, result.css.toString('utf-8'));
+        }
+    });
   };
 
   var formatSassError = function(e) {

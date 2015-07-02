@@ -2,7 +2,7 @@
   "name": "grunt-sass-themer",
   "author": "OpenTable Inc. and Daniel Mendez",
   "description": "Compile multiple themed SASS files to CSS.",
-  "version": "0.0.9",
+  "version": "1.0.0",
   "homepage": "https://github.com/lodalo/grunt-sass-themer",
   "repository": {
     "type": "git",
@@ -27,8 +27,8 @@
   ],
   "main": "Gruntfile.js",
   "engines": {
-    "node": ">= 0.8.0",
-    "npm": ">=1.2.x"
+    "node": ">= 0.12.0",
+    "npm": ">=1.4.x"
   },
   "scripts": {
     "test": "grunt test"
@@ -45,7 +45,7 @@
     "compile"
   ],
   "dependencies": {
-    "node-sass": ">=0.8.4"
+    "node-sass": "~3.2.0"
   },
   "devDependencies": {
     "grunt": "0.4.4",
