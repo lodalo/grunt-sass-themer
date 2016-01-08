@@ -65,7 +65,8 @@ This option is the placeholder string used in the output CSS filename. The name 
 Type: `String`
 Default: 'theme'
 
-This option is the name of the theme file that is imported into each SASS file for compilation.
+This option is the name of the theme file that is imported into each SASS file for compilation. The file is replaced on every iteration of the themes with the current theme in process.
+If the name is left blank, a 'theme' file will get created at the root level.
 
 
 ### Usage Examples

@@ -2,7 +2,7 @@
   "name": "grunt-sass-themer",
   "author": "OpenTable Inc. and Daniel Mendez",
   "description": "Compile multiple themed SASS files to CSS.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "homepage": "https://github.com/lodalo/grunt-sass-themer",
   "repository": {
     "type": "git",
@@ -11,24 +11,11 @@
   "bugs": {
     "url": "https://github.com/lodalo/grunt-sass-themer/issues"
   },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "https://github.com/lodalo/grunt-sass-themer/blob/master/LICENSE-MIT"
-    },
-    {
-      "type": "MIT",
-      "url": "https://github.com/opentable/grunt-sass-themes/blob/master/LICENSE-MIT"
-    },
-    {
-      "type": "MIT",
-      "url": "https://github.com/andrew/node-sass/blob/master/LICENSE"
-    }
-  ],
+  "license": "MIT",
   "main": "Gruntfile.js",
   "engines": {
-    "node": ">= 0.12.0",
-    "npm": ">=1.4.x"
+    "node": ">= 5.4.0",
+    "npm": ">=3.5.3"
   },
   "scripts": {
     "test": "grunt test"
@@ -45,15 +32,17 @@
     "compile"
   ],
   "dependencies": {
-    "node-sass": "~3.2.0"
+    "node-sass": "^3.4.2"
   },
   "devDependencies": {
-    "grunt": "0.4.4",
-    "grunt-contrib-jshint": "0.10.0",
-    "grunt-contrib-clean": "0.5.0",
-    "grunt-contrib-nodeunit": "0.3.3"
+    "grunt": "^0.4.5",
+    "grunt-contrib-jshint": "^0.11.3",
+    "grunt-contrib-clean": "^0.7.0",
+    "grunt-contrib-nodeunit": "^0.4.1",
+    "async": "^1.5.2",
+    "lodash": "^3.10.1"
   },
   "peerDependencies": {
-    "grunt": "~0.4.1"
+    "grunt": "^0.4.5"
   }
 }
