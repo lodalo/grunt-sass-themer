@@ -1,23 +1,22 @@
 /*
  * grunt-sass-themer
  *
- *
  * Adapted from the grunt-contrib-sass module.
  * http://gruntjs.com/
  *
- * Copyright (c) 2012 Tyler Kellen, contributors
+ * Copyright (c) 2012 Tyler Kellen
+ * Copyright (c) 2015 Daniel Mendez
  * Licensed under the MIT license.
  */
 
 'use strict';
 
 module.exports = function (grunt) {
-
   var path = require('path'),
     sass = require('node-sass'),
     fs = require('fs'),
-    _ = grunt.util._,
-    async = grunt.util.async,
+    _ = require('lodash'),
+    async = require('async'),
     sassOptions = {
       render: ['file', 'includePaths', 'outputStyle', 'sourceComments']
     };
@@ -30,28 +29,30 @@ module.exports = function (grunt) {
         themeFilesStartWithUnderscore: true,
         sassExtension: 'scss',
         placeholder: '{{themeName}}',
-        themeImport: 'theme'
+        themeImport: '_sassthemer_theme'
       },
       done = this.async(),
+      //get source and destination files from the grunt configuration:
       srcFiles = this.files;
 
     options = _.extend(options, this.options());
 
-    async.forEachSeries(options.themes, function (theme, nextTheme) {
-
+    //loop over each theme sent in options.themes
+    async.eachSeries(options.themes, function (theme, nextTheme) {
       console.log('Processing theme: ' + theme);
-
+      //get theme source file
       var themePath = getThemePath(options, theme);
-
       var rs = fs.createReadStream(themePath);
-
+      //write theme source to temp themeImport file.
       rs.pipe(fs.createWriteStream(options.themeImport));
 
+      //async call when temp theme file ready
       rs.on('end', function() {
-
-        async.forEachSeries(srcFiles, function(f, nextFileObj) {
+        //loop over each destination file and apply the theme
+        async.eachSeries(srcFiles, function(f, nextFileObj) {
           var destFile = options.output + '/' + f.dest.replace(options.placeholder, theme);
 
+          //validate that the source files exist
           var files = f.src.filter(function(filepath) {
             // Warn on and remove invalid source files (if nonull was set).
             if (!grunt.file.exists(filepath)) {
@@ -61,18 +62,15 @@ module.exports = function (grunt) {
               return true;
             }
           });
-
           if (files.length === 0) {
             if (f.src.length < 1) {
               grunt.log.warn('Destination not written because no source files were found.');
             }
-
-            // No src files, goto next target. Warn would have been issued above.
+            //call callback with (null) to process next file in series
             return nextFileObj();
           }
 
           var compiled = [];
-
           async.concatSeries(files, function(file, next) {
             compileSass(file, options, function(err, css) {
               if (!err) {
@@ -93,7 +91,6 @@ module.exports = function (grunt) {
           });
         }, nextTheme);
       });
-
     }, done);
 
   });

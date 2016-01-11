@@ -10,17 +10,16 @@
 
 [![NPM](https://nodei.co/npm/grunt-sass-themer.png)](https://nodei.co/npm/grunt-sass-themer)
 
-**Based on the brilliance of [grunt-less-themes](https://github.com/hollandben/grunt-less-themes)**
+Based on [grunt-less-themes](https://github.com/hollandben/grunt-less-themes)
 
 ## Getting Started
-This plugin requires node `>=0.12`, node-sass `>=3.0.0`, Grunt `~0.4.0`
+This plugin requires node `>=5.4`, node-sass `>=3.4.2`, Grunt `>=0.4.5`
 
 If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](http://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins. Once you're familiar with that process, you may install this plugin with this command:
 
 ```shell
 npm install grunt-sass-themer --save-dev
 ```
-
 Once the plugin has been installed, it may be enabled inside your Gruntfile with this line of JavaScript:
 
 ```js
@@ -63,10 +62,12 @@ This option is the placeholder string used in the output CSS filename. The name 
 
 #### themeImport
 Type: `String`
-Default: 'theme'
+Default: '_sassthemer_temp'
 
 This option is the name of the theme file that is imported into each SASS file for compilation. The file is replaced on every iteration of the themes with the current theme in process.
-If the name is left blank, a 'theme' file will get created at the root level.
+If the name is left blank, a '_sassthemer_temp.scss' file will get created at the root level.
+Make sure the name matches the @import directive in your main scss file or the compilation will fail. The underscore lets Sass know that the file is only a partial file and that it should not be generated into a CSS file.
+
 
 
 ### Usage Examples
@@ -80,6 +81,7 @@ sassThemer: {
             output: 'path/to/output'
         },
         files: {
+            //destination: source
             'example_{{themeName}}.css': 'simple.scss'
         }
     }

@@ -26,10 +26,11 @@ module.exports = function (grunt) {
           "themeFilesStartWithUnderscore": true,
           "themes": ['black', 'white'],
           "themeDir": 'test/fixtures/themes-with-underscore',
-          "themeImport": 'test/fixtures/_theme.scss',
+          "themeImport": 'test/fixtures/_sassthemer_theme.scss',
           "outputStyle": 'compact'
         },
         "files": {
+          //destination: source
           "simple_with_underscores_{{themeName}}.css": ['test/fixtures/simple.scss']
         }
       },
@@ -39,7 +40,7 @@ module.exports = function (grunt) {
           "themeFilesStartWithUnderscore": false,
           "themes": ['black', 'white'],
           "themeDir": 'test/fixtures/themes-without-underscore',
-          "themeImport": 'test/fixtures/_theme.scss',
+          "themeImport": 'test/fixtures/_sassthemer_theme.scss',
           "outputStyle": 'compact'
         },
         "files": {
