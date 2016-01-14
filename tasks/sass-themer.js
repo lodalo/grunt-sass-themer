@@ -38,7 +38,7 @@ module.exports = function (grunt) {
     options = _.extend(options, this.options());
 
     //loop over each theme sent in options.themes
-    async.eachSeries(options.themes, function (theme, nextTheme) {
+    async.forEachSeries(options.themes, function (theme, nextTheme) {
       console.log('Processing theme: ' + theme);
       //get theme source file
       var themePath = getThemePath(options, theme);
@@ -49,7 +49,7 @@ module.exports = function (grunt) {
       //async call when temp theme file ready
       rs.on('end', function() {
         //loop over each destination file and apply the theme
-        async.eachSeries(srcFiles, function(f, nextFileObj) {
+        async.forEachSeries(srcFiles, function(f, nextFileObj) {
           var destFile = options.output + '/' + f.dest.replace(options.placeholder, theme);
 
           //validate that the source files exist
